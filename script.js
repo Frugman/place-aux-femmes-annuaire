@@ -17,7 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return array;
     }
     const shuffledMembers = shuffleArray([...lotsOfMembers]);
-    document.getElementById('member-count').innerText = `${shuffledMembers.length} DÉMOCRATES DE COMBAT`;
+    
+    // Le compteur avec votre texte personnalisé
+    document.getElementById('member-count').innerText = `${shuffledMembers.length} DÉMOCRATE(S) DE COMBAT`;
 
     const gridContainer = document.getElementById('members-grid');
     const markers = [];
@@ -36,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // GÉNÉRATION DES MINI-FICHES
     shuffledMembers.forEach(member => {
-        const lieu = member.ville; // Ville uniquement
+        const lieu = member.ville; 
         
         const card = document.createElement('div');
         card.className = "bg-white p-5 border-2 border-gray-200 hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(255,237,0,1)] transition-all flex items-start space-x-4 cursor-pointer group";
@@ -58,8 +60,17 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         gridContainer.appendChild(card);
 
+        // --- NOUVEAU : PUCES JAUNES ET NOIRES SUR LA CARTE ---
         if (member.lat && member.lng) {
-            const marker = L.marker([member.lat, member.lng]).addTo(map).bindPopup(`<b>${member.prenom} ${member.nom}</b><br>${member.nom_code || ''}`);
+            const marker = L.circleMarker([member.lat, member.lng], {
+                color: '#000000',       // Couleur du contour (Noir)
+                fillColor: '#ffed00',   // Couleur de remplissage (Jaune)
+                fillOpacity: 1,         // Opacité de remplissage (100% visible)
+                opacity: 1,             // Opacité du contour
+                weight: 2,              // Épaisseur du contour (en px)
+                radius: 8               // Taille du point
+            }).addTo(map).bindPopup(`<b>${member.prenom} ${member.nom}</b><br>${member.nom_code || ''}`);
+            
             marker.on('click', () => openModal(member));
             markers.push(marker);
         }
@@ -199,6 +210,3 @@ function openModal(member) {
 
     modal.classList.remove('hidden');
 }
-
-
-
