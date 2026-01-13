@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return array;
     }
     const shuffledMembers = shuffleArray([...lotsOfMembers]);
-    document.getElementById('member-count').innerText = `${shuffledMembers.length} DÉMOCRATE(S) DE COMBAT`;
+    document.getElementById('member-count').innerText = `${shuffledMembers.length} DÉMOCRATES DE COMBAT`;
 
     const gridContainer = document.getElementById('members-grid');
     const markers = [];
@@ -202,4 +202,5 @@ function openModal(member) {
 
     modal.classList.remove('hidden');
 }
+
 
