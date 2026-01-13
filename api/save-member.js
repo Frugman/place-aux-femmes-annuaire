@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
     // 1. Sécurité
     if (req.method !== 'POST') {
         return res.status(405).json({ message: 'Méthode non autorisée' });
@@ -18,9 +18,12 @@ export default async function handler(req, res) {
     try {
         const path = `membres/${fileName}`;
         const message = `Nouvelle inscription : ${fileName}`;
+        // GitHub veut du base64
         const content = Buffer.from(fileContent).toString('base64');
 
         // 3. Appel GitHub
+        // On utilise node-fetch intégré ou le fetch natif selon la version, 
+        // ce code est compatible avec les deux.
         const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
             method: 'PUT',
             headers: {
@@ -42,7 +45,7 @@ export default async function handler(req, res) {
         return res.status(200).json({ success: true });
 
     } catch (error) {
-        console.error(error);
+        console.error("Erreur API:", error);
         return res.status(500).json({ message: error.message });
     }
-}
+};
