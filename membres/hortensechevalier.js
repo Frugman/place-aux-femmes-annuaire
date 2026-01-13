@@ -1,4 +1,4 @@
-export const hortenseChevalier = {
+export const hortensechevalier = {
     id: "hortensechevalier", // Identifiant unique (slug)
     prenom: "Hortense",
     nom: "Chevalier",
