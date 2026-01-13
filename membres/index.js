@@ -4,7 +4,7 @@ import { hortensechevalier } from './hortensechevalier.js';
 
 // 2. Ajouter les membres dans la liste finale
 export const lotsOfMembers = [
-    hortenseChevalier,
+    hortensechevalier,
     // Quand vous aurez une nouvelle membre (ex: Fatou), vous ajouterez :
     // fatouDiop,
 ];
