@@ -1,3 +1,4 @@
+import { agnescamarena } from './agnescamarena.js';
 import { delphinepaulot } from './delphinepaulot.js';
 import { mireillecaulier } from './mireillecaulier.js';
 // 1. Importer les fiches des membres ici
@@ -6,6 +7,7 @@ import { hortensechevalier } from './hortensechevalier.js';
 
 // 2. Ajouter les membres dans la liste finale
 export const lotsOfMembers = [
+    agnescamarena,
     delphinepaulot,
         mireillecaulier,
     hortensechevalier,
