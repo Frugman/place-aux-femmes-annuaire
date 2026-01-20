@@ -15,8 +15,8 @@ export const francoiseberric = {
     sujets_interet: ["Égalité des chances","inclusion","justice sociale"],
     stats: {
         "bagou": 2,
-        "redac": 3,
-        "terrain": 3,
+        "redac": 2,
+        "terrain": 2,
         "orga": 2
     },
     linkedin: "https://www.linkedin.com/in/fran%C3%A7oise-berric-78029b265",
