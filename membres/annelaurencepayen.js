@@ -16,7 +16,7 @@ export const annelaurencepayen = {
     stats: {
         "bagou": 2,
         "redac": 4,
-        "terrain": 3,
+        "terrain": 4,
         "orga": 4
     },
     linkedin: "",
